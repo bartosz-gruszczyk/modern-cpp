@@ -5,8 +5,10 @@
 class Circle : public Shape
 {
 public:
+    using Shape::Shape;
+    Circle() = delete;
     Circle(double r);
-    Circle(const Circle & other);
+    Circle(const Circle & other) = default;
 
     double getArea() const;
     double getPerimeter() const;
@@ -14,7 +16,7 @@ public:
     void print() const;
 
 private:
-    Circle(); // doesn't allow to call default constructor
+    // Circle(); // doesn't allow to call default constructor
 
     double r_;
 };

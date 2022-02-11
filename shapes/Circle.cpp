@@ -6,13 +6,14 @@ Circle::Circle(double r)
     : r_(r)
 {}
 
-Circle::Circle(const Circle & other)
-{
-    r_ = other.getRadius();
-}
+// Circle::Circle(const Circle & other)
+// {
+//     r_ = other.getRadius();
+// }
 
 double Circle::getArea() const
 {
+    static_assert(M_PI != 3.14, "M_PI is not precise");
     return M_PI * r_ * r_;
 }
 

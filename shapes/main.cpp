@@ -14,7 +14,7 @@ typedef vector<shared_ptr<Shape>> Collection;
 
 bool sortByArea(shared_ptr<Shape> first, shared_ptr<Shape> second)
 {
-    if(first == NULL || second == NULL)
+    if(first == nullptr || second == nullptr)
         return false;
     return (first->getArea() < second->getArea());
 }
@@ -65,14 +65,16 @@ void findFirstShapeMatchingPredicate(const Collection& collection,
 
 int main()
 {
-    Collection shapes;
-    shapes.push_back(make_shared<Circle>(2.0));
-    shapes.push_back(make_shared<Circle>(3.0));
-    shapes.push_back(nullptr);
-    shapes.push_back(make_shared<Circle>(4.0));
-    shapes.push_back(make_shared<Rectangle>(10.0, 5.0));
-    shapes.push_back(make_shared<Square>(3.0));
-    shapes.push_back(make_shared<Circle>(4.0));
+    Collection shapes = {
+        make_shared<Circle>(3.0),
+        nullptr,
+        make_shared<Circle>(4.0),
+        make_shared<Circle>(2.0),
+        make_shared<Rectangle>(10.0, 5.0),
+        make_shared<Square>(3.0),
+        make_shared<Circle>(4.0),
+    };
+
     printCollectionElements(shapes);
 
     cout << "Areas before sort: " << std::endl;
